@@ -1,7 +1,7 @@
 ---
 name: feat
 about: Suggest an idea for this project
-title: "[type] : [Issue name]"
+title: "[type] : Issue name"
 labels: ''
 assignees: ''
 
