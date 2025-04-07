@@ -26,7 +26,7 @@
 
 #### PR 제목:
 - 제목 : [feat] : 기능명
-  ex) [feat] : pull request template 작성
+- ex) [feat] : pull request template 작성
 
 #### PR 본문 구조 (권장)
 > #이슈번호
