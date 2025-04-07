@@ -1,0 +1,21 @@
+{
+  "member": [
+    {
+      "id": 1,
+      "name": "강만제",
+      "email": "minijae011030@gmail.com",
+      "password": "011030"
+    }
+  ],
+  "transaction": [
+    {
+      "id": 1,
+      "amount": 10000,
+      "date": 20250407,
+      "category": "식사",
+      "memo": "순대국",
+      "type": false,
+      "memberId": 1
+    }
+  ]
+}
