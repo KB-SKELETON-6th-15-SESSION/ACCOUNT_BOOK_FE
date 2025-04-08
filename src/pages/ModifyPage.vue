@@ -1,13 +1,12 @@
 <template>
-  <div class="modify-container">
-    <button
-      class="btn btn-link mb-3 p-0"
-      style="font-size: 1rem; transform: translateX()"
-    >
-      ← 뒤로가기
-    </button>
+  <div
+    class="container p-4 rounded-lg border-solid border-2"
+    style="max-width: 400px"
+  >
+    <Header />
+    <BackButton @click="goBack" />
 
-    <div class="form">
+    <div class="form mt-[50px] mb-[100px]">
       <label>이름</label>
       <input type="text" v-model="member.name" />
 
@@ -18,50 +17,31 @@
       <input type="password" v-model="member.password" />
     </div>
 
-    <button class="edit-btn">프로필 수정하기</button>
+    <MainButton>프로필 수정하기</MainButton>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      member: {
-        name: '강민재',
-        email: 'minijae011030@gmail.com',
-        password: '',
-      },
-    };
-  },
-};
+<script setup>
+import BackButton from "@/components/Shared/BackButton.vue";
+import Header from "@/components/Shared/Header.vue";
+import MainButton from "@/components/Shared/MainButton.vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const member = ref({
+  name: "강민재",
+  email: "minijae011030@gmail.com",
+  password: "",
+});
+
+function goBack() {
+  router.back();
+}
 </script>
 
 <style scoped>
-.modify-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-
 .form label {
   display: block;
   margin: 0.5rem 0 0.2rem;
@@ -75,17 +55,5 @@ export default {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 0.9rem;
-}
-
-.edit-btn {
-  width: 100%;
-  background-color: #a855f7;
-  color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 1.5rem;
 }
 </style>
