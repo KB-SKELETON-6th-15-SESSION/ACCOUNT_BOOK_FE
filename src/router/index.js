@@ -1,20 +1,29 @@
-import { createRouter, createWebHistory } from "vue-router";
-import ProfilePage from "@/pages/ProfilePage.vue";
+import CreatePage from "@/pages/Createpage.vue";
+import DetailPage from "@/pages/DetailPage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
+import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
+import ProfilePage from "@/pages/ProfilePage.vue";
 import ReportPage from "@/pages/ReportPage.vue";
+import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "detail",
-      component: () => import("../pages/detailPage.vue"),
+      name: "Login",
+      component: LoginPage,
     },
     {
       path: "/main",
-      name: "main",
-      component: () => import("../pages/MainPage.vue"),
+      name: "Main",
+      component: MainPage,
+    },
+    {
+      path: "/detail",
+      name: "Detail",
+      component: DetailPage,
     },
     {
       path: "/profile",
@@ -30,6 +39,11 @@ const router = createRouter({
       path: "/report",
       name: "Report",
       component: ReportPage,
+    },
+    {
+      path: "/create",
+      name: "Create",
+      component: CreatePage,
     },
   ],
 });

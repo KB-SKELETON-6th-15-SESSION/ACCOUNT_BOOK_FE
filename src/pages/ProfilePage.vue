@@ -1,42 +1,46 @@
 <template>
-  <div class="container text-center py-4">
-    <!-- Header 이따 컴포넌트로 -->
-
-    <button
-      class="btn btn-link mb-3 p-0"
-      style="font-size: 1rem; transform: translateX(-100px)"
-    >
-      ← 뒤로가기
-    </button>
+  <div
+    class="container p-4 rounded-lg border-solid border-2"
+    style="max-width: 400px"
+  >
+    <Header />
+    <BackButton @click="goBack" />
 
     <img
       src="@/assets/basic_picture.png"
       alt="기본 이미지"
       class="rounded-circle mb-3 mx-auto d-block"
-      style="width: 120px; height: 120px"
+      style="width: 225px; height: 225px"
     />
 
-    <h2 class="fw-bold">{{ member.name }}</h2>
-    <p class="text-muted mb-4">{{ member.email }}</p>
+    <div class="flex flex-col justify-center gap-2 items-center mb-[130px]">
+      <p class="text-[36px] font-bold">{{ member.name }}</p>
+      <p class="text-muted mb-4">{{ member.email }}</p>
+    </div>
 
-    <button
-      class="btn mt-4 px-4 py-2 rounded-pill"
-      style="background-color: #a855f7; color: #fff; border: none"
-    >
-      프로필 수정하기
-    </button>
+    <MainButton @click="check">프로필 수정하기</MainButton>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      member: {
-        name: '강민재',
-        email: 'minijae011030@gmail.com',
-      },
-    };
-  },
+<script setup>
+import BackButton from "@/components/Shared/BackButton.vue";
+import Header from "@/components/Shared/Header.vue";
+import MainButton from "@/components/Shared/MainButton.vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const member = ref({
+  name: "강민재",
+  email: "minijae011030@gmail.com",
+});
+
+const goBack = () => {
+  router.back();
+};
+
+const check = () => {
+  router.push({ name: "Modify" });
 };
 </script>
