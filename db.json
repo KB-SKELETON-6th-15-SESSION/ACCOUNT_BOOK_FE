@@ -57,6 +57,16 @@
       "memo": "",
       "type": true,
       "memberId": 1
+    },
+    {
+      "id": "5711",
+      "name": "dd",
+      "amount": 30000,
+      "date": 20250408,
+      "category": "식비",
+      "memo": "dd",
+      "type": false,
+      "memberId": 1
     }
   ]
 }

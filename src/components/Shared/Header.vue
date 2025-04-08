@@ -1,7 +1,22 @@
 <template>
-  <div class="w-full border-bottom py-2 mb-4">
-    <p class="font-bold text-lg mb-2">강민재님</p>
+  <div class="w-full border-bottom py-2 mb-10 flex gap-2 items-center">
+    <p class="font-bold text-lg">{{ name }}님</p>
+    <div
+      @click="goToProfile"
+      class="cursor-pointer rounded-full border w-[25px] h-[25px] bg-gray-200 flex items-center justify-center"
+    >
+      <i class="bi bi-arrow-right text-sm"></i>
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+
+const name = localStorage.getItem("name");
+const router = useRouter();
+
+const goToProfile = () => {
+  router.push("/profile");
+};
+</script>
