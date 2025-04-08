@@ -40,11 +40,8 @@ const router = useRouter();
 
 // 확인 버튼 클릭시 report 페이지로 이동
 function check() {
-    return router.push({ name: report });
+    router.push('/report')
 }
-
-
-
 </script>
 
 <style scoped></style>
