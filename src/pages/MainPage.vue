@@ -65,11 +65,11 @@
 </template>
 
 <script setup>
-import Header from "@/components/Shared/Header.vue";
-import axios from "axios";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-const userId = localStorage.getItem("id");
+import Header from '@/components/Shared/Header.vue';
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const userId = localStorage.getItem('id');
 const route = useRouter();
 const totalAmount = ref(0);
 const totalExpense = ref(0);
@@ -97,10 +97,10 @@ async function calAllExpense() {
 calAllExpense();
 
 function toReport() {
-  route.push("/report");
+  route.push('/report');
 }
 function toCreate() {
-  route.push("/create");
+  route.push('/create');
 }
 </script>
 

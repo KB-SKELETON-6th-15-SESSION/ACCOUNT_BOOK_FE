@@ -17,27 +17,56 @@
       <input type="password" v-model="member.password" />
     </div>
 
-    <MainButton>프로필 수정하기</MainButton>
+    <MainButton @click="updateMember">프로필 수정하기</MainButton>
   </div>
 </template>
 
 <script setup>
-import BackButton from "@/components/Shared/BackButton.vue";
-import Header from "@/components/Shared/Header.vue";
-import MainButton from "@/components/Shared/MainButton.vue";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import Header from '@/components/Shared/Header.vue';
+import BackButton from '@/components/Shared/BackButton.vue';
+import MainButton from '@/components/Shared/MainButton.vue';
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import axios from 'axios';
 
 const router = useRouter();
 
 const member = ref({
-  name: "강민재",
-  email: "minijae011030@gmail.com",
-  password: "",
+  name: '',
+  email: '',
+  password: '',
+});
+
+const id = localStorage.getItem('id');
+
+onMounted(async () => {
+  //   if (!id) {
+  //     alert('로그인이 필요합니다');
+  //     router.push('/login');
+  //     return;
+  //   }
+
+  const res = await axios.get(`http://localhost:3000/member/${id}`);
+  member.value = {
+    name: res.data.name,
+    email: res.data.email,
+    password: res.data.password,
+  };
 });
 
 function goBack() {
-  router.push("/profile");
+  router.push('/profile');
+}
+
+async function updateMember() {
+  try {
+    await axios.put(`http://localhost:3000/member/${id}`, member.value);
+    alert('수정 완료');
+    router.push('/profile');
+  } catch (error) {
+    console.error(error);
+    alert('수정 실패');
+  }
 }
 </script>
 
