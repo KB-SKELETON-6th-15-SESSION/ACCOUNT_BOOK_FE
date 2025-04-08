@@ -9,6 +9,11 @@ const router = createRouter({
       name: "Report",
       component: ReportPage,
     },
+    {
+      path: "/",
+      name: "detail",
+      component: () => import("../pages/detailPage.vue"),
+    },
   ],
 });
 
