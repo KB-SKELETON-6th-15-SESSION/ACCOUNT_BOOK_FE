@@ -1,15 +1,23 @@
 <template>
-  <div class="bg-white p-3 rounded-xl flex items-center">
-    <div class="bg-[#f3edfd] rounded-full h-10 w-10"></div>
-    <div class="flex justify-center items-center gap-4">
-      <div>
-        <div class="text-xs text-gray-500">{{ category }}</div>
-        <div class="text-md font-semibold">{{ title }}</div>
-        <div class="text-xs text-gray-400">{{ date }}</div>
-      </div>
+  <div class="card mb-2 border">
+    <div class="card-body d-flex align-items-center">
+      <!-- 아이콘 원 -->
       <div
-        class="text-sm font-semibold"
-        :class="isIncome ? 'text-blue-500' : 'text-red-500'"
+        class="rounded-circle me-3"
+        style="background-color: #f3edfd; width: 40px; height: 40px"
+      ></div>
+
+      <!-- 텍스트 정보 -->
+      <div class="flex-grow-1">
+        <div class="small text-muted">{{ category }}</div>
+        <div class="fw-semibold">{{ title }}</div>
+        <div class="small text-secondary">{{ date }}</div>
+      </div>
+
+      <!-- 금액 -->
+      <div
+        class="fw-semibold text-end"
+        :class="isIncome ? 'text-primary' : 'text-danger'"
       >
         {{ amountDisplay }}
       </div>
