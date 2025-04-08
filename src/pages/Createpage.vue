@@ -7,7 +7,7 @@
     <BackButton @click="goBack" />
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
-        <label class="form-label font-bold">제목</label>
+        <label class="form-label font-bold">제목 *</label>
         <input
           type="text"
           class="form-control h-[45px]"
@@ -17,7 +17,7 @@
       </div>
 
       <div class="mb-3 flex gap-2">
-        <label class="form-label font-bold w-[100px] m-auto">금액</label>
+        <label class="form-label font-bold w-[100px] m-auto">금액 *</label>
         <div class="input-group">
           <input type="number" class="form-control h-[45px]" v-model="amount" />
           <span class="input-group-text fw-bold bg-white">원</span>
@@ -25,14 +25,21 @@
       </div>
 
       <div class="mb-3 flex gap-2">
-        <label class="form-label font-bold w-[100px] m-auto">카테고리</label>
+        <label class="form-label font-bold w-[100px] m-auto">카테고리 *</label>
         <select class="form-select h-[45px]" v-model="category">
           <option disabled value="">카테고리를 선택하세요</option>
+          <option
+            v-for="option in categoryOptions"
+            :key="option"
+            :value="option"
+          >
+            {{ option }}
+          </option>
         </select>
       </div>
 
       <div class="mb-3 flex justify-between">
-        <label class="form-label fw-bold d-block">거래 유형</label>
+        <label class="form-label fw-bold d-block">거래 유형 *</label>
         <div class="btn-group" role="group">
           <input
             type="radio"
@@ -72,6 +79,7 @@
 import BackButton from "@/components/Shared/BackButton.vue";
 import Header from "@/components/Shared/Header.vue";
 import MainButton from "@/components/Shared/MainButton.vue";
+import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -83,19 +91,64 @@ const category = ref("");
 const type = ref("");
 const memo = ref("");
 
+const categoryOptions = [
+  "공과금",
+  "경조사비",
+  "식비",
+  "여비교통비",
+  "월급",
+  "여가비",
+  "기타",
+];
+
 const goBack = () => {
   router.back();
 };
 
-const handleSubmit = () => {
-  console.log({
-    title: title.value,
-    amount: amount.value,
-    category: category.value,
-    type: type.value,
-    memo: memo.value,
-  });
+const handleSubmit = async () => {
+  const id = localStorage.getItem("id");
 
-  // 실제 저장 로직 추가 가능
+  if (title.value === "") {
+    alert("제목은 필수 입력사항입니다.");
+    return;
+  }
+
+  if (amount.value === "") {
+    alert("금액은 필수 입력사항입니다.");
+    return;
+  }
+
+  if (category.value === "") {
+    alert("카테고리는 필수 선택사항입니다.");
+    return;
+  }
+
+  if (type.value === "") {
+    alert("거래유형은 필수 선택사항입니다.");
+    return;
+  }
+
+  const newTransaction = {
+    name: title.value,
+    amount: Number(amount.value),
+    date: Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")),
+    category: category.value,
+    memo: memo.value,
+    type: type.value === "수입",
+    memberId: Number(id),
+  };
+
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/transaction",
+      newTransaction
+    );
+    console.log("등록 성공:", response.data);
+    alert("거래내역이 등록되었습니다!");
+    router.push("/report");
+  } catch (error) {
+    console.error("등록 실패:", error);
+    alert("등록 중 오류가 발생했습니다.");
+  }
 };
 </script>
