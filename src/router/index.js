@@ -27,6 +27,13 @@ const router = createRouter({
       component: ReportPage,
     },
   ],
+  routes: [
+    {
+      path: '/',
+      name: 'Modify',
+      component: ModifyPage,
+    },
+  ],
 });
 
 export default router;
