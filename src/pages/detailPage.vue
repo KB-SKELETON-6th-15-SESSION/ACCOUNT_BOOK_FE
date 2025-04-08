@@ -37,4 +37,4 @@ function check() {
 }
 </script>
 
-<style scoped></style>
+<style></style>
