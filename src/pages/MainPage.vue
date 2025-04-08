@@ -5,7 +5,7 @@
   >
     <Header />
     <!-- 상단 유저 인사 -->
-    <div class="mb-9 mt-9 flex-col flex gap-2">
+    <div class="mb-9 flex-col flex gap-2">
       <p class="text-3xl"><strong>강민재</strong>님</p>
       <p class="text-3xl">화창한 날씨네요.</p>
       <p class="text-3xl">오늘 나들이 어떠세요?</p>
