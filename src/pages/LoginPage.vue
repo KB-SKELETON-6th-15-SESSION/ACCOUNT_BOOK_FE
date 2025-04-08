@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container pt-[150px] rounded-lg border-solid border-2 w-full h-[800px]"
-    style="max-width: 400px"
-  >
+  <div class="layout pt-[150px]" style="max-width: 400px">
     <p class="font-bold text-[45px] text-center mb-5">텅장지킴이</p>
 
     <form @submit.prevent="handleLogin" class="mb-[100px]">

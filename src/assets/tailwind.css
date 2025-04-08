@@ -7,3 +7,9 @@ body,
 #app {
   height: 100%;
 }
+
+@layer components {
+  .layout {
+    @apply container p-4 rounded-[35px] border-solid border-2 h-[800px];
+  }
+}

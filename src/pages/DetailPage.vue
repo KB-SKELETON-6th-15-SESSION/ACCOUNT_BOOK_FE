@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container p-4 rounded-lg border-solid border-2"
-    style="max-width: 400px"
-  >
+  <div class="layout" style="max-width: 400px">
     <Header />
 
     <!-- 카테고리 -->
@@ -37,9 +34,9 @@
 <script setup>
 import Header from "@/components/Shared/Header.vue";
 import MainButton from "@/components/Shared/MainButton.vue";
-import { useRouter } from "vue-router";
-import { ref, onMounted, computed } from "vue";
 import axios from "axios";
+import { computed, onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 

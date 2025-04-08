@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full border-bottom py-2 mb-10 flex gap-2 items-center">
+  <div class="w-full border-bottom py-2 mb-10 flex gap-2 items-center h-[60px]">
     <p class="font-bold text-lg">{{ name }}님</p>
     <div
       @click="goToProfile"
