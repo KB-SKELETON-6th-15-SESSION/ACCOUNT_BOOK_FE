@@ -1,4 +1,4 @@
-import DetailPage from "@/pages/detailPage.vue";
+import DetailPage from "@/pages/DetailPage.vue";
 import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";

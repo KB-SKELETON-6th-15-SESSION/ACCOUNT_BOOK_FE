@@ -1,16 +1,21 @@
 <template>
-  <div class="container py-4" style="max-width: 400px">
+  <div
+    class="container p-4 rounded-lg border-solid border-2"
+    style="max-width: 400px"
+  >
+    <Header />
     <!-- 상단 유저 인사 -->
-    <div class="mb-4">
-      <h5 class="fw-bold">강민재님</h5>
-      <p class="mb-0">화창한 날씨네요.<br />오늘 나들이 어떠세요?</p>
+    <div class="mb-9 mt-9 flex-col flex gap-2">
+      <p class="text-3xl"><strong>강민재</strong>님</p>
+      <p class="text-3xl">화창한 날씨네요.</p>
+      <p class="text-3xl">오늘 나들이 어떠세요?</p>
     </div>
 
     <!-- 상세내역 보기 버튼 -->
-    <div class="d-grid mb-4">
+    <div class="d-grid mb-3">
       <button
-        class="btn btn-light text-dark fw-medium border border-light-purple"
-        style="background: linear-gradient(90deg, #e4d5ff, #e0d6ff)"
+        class="btn btn-light text-black rounded-[10px] fw-medium border h-[50px]"
+        style="background: linear-gradient(90deg, #e8deff, #e0d6ff)"
         @click="toReport"
       >
         상세내역 보기
@@ -18,53 +23,53 @@
     </div>
 
     <!-- 총 수입/지출 카드 -->
-    <div class="d-flex justify-content-between mb-4">
+    <div class="flex justify-between mb-2">
       <!-- 수입 -->
       <div
-        class="card text-white text-center me-2 flex-fill"
-        style="background: linear-gradient(135deg, #a66cff, #8f3cff)"
+        class="w-[49%] rounded-[10px] p-4 flex flex-col gap-3"
+        style="background: #b54ce9"
       >
-        <div class="card-body p-3">
-          <small>총 수입</small>
-          <h5 class="card-title">{{ totalAmount.toLocaleString() }}원</h5>
-        </div>
+        <p class="text-xl text-white">총 수입</p>
+        <p class="text-xl text-white">{{ totalAmount.toLocaleString() }}원</p>
       </div>
       <!-- 지출 -->
       <div
-        class="card text-white text-center flex-fill"
-        style="background: linear-gradient(135deg, #6f79ff, #4951e1)"
+        class="w-[49%] rounded-[10px] p-4 flex flex-col gap-3"
+        style="background: #7c4ce9"
       >
-        <div class="card-body p-3">
-          <small>총 지출</small>
-          <h5 class="card-title">{{ totalExpense.toLocaleString() }}원</h5>
-        </div>
+        <p class="text-xl text-white">총 지출</p>
+        <p class="text-xl text-white">{{ totalExpense.toLocaleString() }}원</p>
       </div>
     </div>
 
     <!-- 순수익 -->
-    <div class="card mb-4">
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <span class="fw-medium">순수익</span>
-        <span class="fw-semibold"
-          >{{ (totalAmount - totalExpense).toLocaleString() }}원</span
-        >
-      </div>
+
+    <div
+      class="border p-3 mb-2 d-flex justify-content-between align-items-center rounded-[10px]"
+    >
+      <span class="fw-medium">순수익</span>
+      <span class="fw-semibold"
+        >{{ (totalAmount - totalExpense).toLocaleString() }}원</span
+      >
     </div>
 
     <!-- 새로운 거래내역 추가 -->
-    <div class="d-grid">
-      <button class="btn btn-outline-dark fw-medium" @click="toCreate">
-        새로운 거래내역 추가하기
-      </button>
-    </div>
+
+    <button
+      class="w-full border p-3 rounded-[10px] font-bold"
+      @click="toCreate"
+    >
+      새로운 거래내역 추가하기
+    </button>
   </div>
 </template>
 
 <script setup>
-import axios from 'axios';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-const userId = localStorage.getItem('id');
+import Header from "@/components/Shared/Header.vue";
+import axios from "axios";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+const userId = localStorage.getItem("id");
 const route = useRouter();
 const totalAmount = ref(0);
 const totalExpense = ref(0);
@@ -92,10 +97,10 @@ async function calAllExpense() {
 calAllExpense();
 
 function toReport() {
-  route.push('/report');
+  route.push("/report");
 }
 function toCreate() {
-  route.push('/create');
+  route.push("/create");
 }
 </script>
 
