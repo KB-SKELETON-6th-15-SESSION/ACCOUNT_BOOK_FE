@@ -11,7 +11,7 @@
       <div class="flex-grow-1">
         <div class="small text-muted">{{ category }}</div>
         <div class="fw-semibold">{{ title }}</div>
-        <div class="small text-secondary">{{ date }}</div>
+        <div class="small text-secondary">{{ dateDisplay }}</div>
       </div>
 
       <!-- 금액 -->
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed } from 'vue';
 
 const props = defineProps({
   category: String,
@@ -37,6 +37,17 @@ const props = defineProps({
 });
 
 const amountDisplay = computed(() => {
-  return `${props.isIncome ? "+" : "-"}${props.amount?.toLocaleString() ?? 0}`;
+  return `${props.isIncome ? '+' : '-'}${props.amount?.toLocaleString() ?? 0}`;
+});
+
+const dateDisplay = computed(() => {
+  if (!props.date) return '';
+
+  const dateStr = props.date.toString(); // 예: '20250304'
+  const year = dateStr.slice(0, 4);
+  const month = dateStr.slice(4, 6);
+  const day = dateStr.slice(6, 8);
+
+  return `${year}년 ${month}월 ${day}일`;
 });
 </script>

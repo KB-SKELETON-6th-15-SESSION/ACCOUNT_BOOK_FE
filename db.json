@@ -1,7 +1,7 @@
 {
   "member": [
     {
-      "id": "1",
+      "id": 1,
       "name": "강만제",
       "email": "minijae011030@gmail.com",
       "password": "011030"
@@ -9,63 +9,33 @@
   ],
   "transaction": [
     {
-      "id": "1",
+      "id": 1,
       "amount": 10000,
       "date": 20250407,
       "name": "일품순대국",
-      "category": "식사",
+      "category": "식비",
       "memo": "순대국",
       "type": false,
       "memberId": 1
     },
     {
-      "id": "437a",
-      "name": "",
-      "amount": 0,
-      "date": 20250408,
-      "category": "",
-      "memo": "",
-      "type": false,
-      "memberId": 1
-    },
-    {
-      "id": "66aa",
-      "name": "",
-      "amount": 0,
-      "date": 20250408,
-      "category": "",
-      "memo": "",
-      "type": false,
-      "memberId": 1
-    },
-    {
-      "id": "339b",
-      "name": "TEST",
-      "amount": 30000,
-      "date": 20250408,
-      "category": "경조사비",
-      "memo": "내 결혼식",
-      "type": true,
-      "memberId": 1
-    },
-    {
-      "id": "ac04",
-      "name": "ㅇㅇ",
-      "amount": 30000,
-      "date": 20250408,
+      "id": 2,
+      "amount": 10000000,
+      "date": 20250407,
+      "name": "일품순대국",
       "category": "월급",
-      "memo": "",
+      "memo": "순대국",
       "type": true,
       "memberId": 1
     },
     {
-      "id": "5711",
-      "name": "dd",
-      "amount": 30000,
-      "date": 20250408,
-      "category": "식비",
-      "memo": "dd",
-      "type": false,
+      "id": 3,
+      "amount": 10000000,
+      "date": 20250407,
+      "name": "일품순대국",
+      "category": "월급",
+      "memo": "순대국",
+      "type": true,
       "memberId": 1
     }
   ]
