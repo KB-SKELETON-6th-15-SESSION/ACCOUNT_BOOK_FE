@@ -11,6 +11,7 @@
       <button
         class="btn btn-light text-dark fw-medium border border-light-purple"
         style="background: linear-gradient(90deg, #e4d5ff, #e0d6ff)"
+        @click="toReport"
       >
         상세내역 보기
       </button>
@@ -25,7 +26,7 @@
       >
         <div class="card-body p-3">
           <small>총 수입</small>
-          <h5 class="card-title">3,000,000원</h5>
+          <h5 class="card-title">{{ totalAmount.toLocaleString() }}원</h5>
         </div>
       </div>
       <!-- 지출 -->
@@ -35,7 +36,7 @@
       >
         <div class="card-body p-3">
           <small>총 지출</small>
-          <h5 class="card-title">1,800,000원</h5>
+          <h5 class="card-title">{{ totalExpense.toLocaleString() }}원</h5>
         </div>
       </div>
     </div>
@@ -44,13 +45,15 @@
     <div class="card mb-4">
       <div class="card-body d-flex justify-content-between align-items-center">
         <span class="fw-medium">순수익</span>
-        <span class="fw-semibold">1,200,000</span>
+        <span class="fw-semibold"
+          >{{ (totalAmount - totalExpense).toLocaleString() }}원</span
+        >
       </div>
     </div>
 
     <!-- 새로운 거래내역 추가 -->
     <div class="d-grid">
-      <button class="btn btn-outline-dark fw-medium">
+      <button class="btn btn-outline-dark fw-medium" @click="toCreate">
         새로운 거래내역 추가하기
       </button>
     </div>
@@ -58,7 +61,42 @@
 </template>
 
 <script setup>
-// 로직 추가 가능
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const userId = localStorage.getItem('id');
+const route = useRouter();
+const totalAmount = ref(0);
+const totalExpense = ref(0);
+
+async function calAllAmount() {
+  const res = await axios.get(
+    `http://localhost:3000/transaction?userId=${userId}&type=true`
+  );
+  const data = await res.data;
+  data.forEach((e) => {
+    totalAmount.value += e.amount;
+  });
+}
+calAllAmount();
+
+async function calAllExpense() {
+  const res = await axios.get(
+    `http://localhost:3000/transaction?userId=${userId}&type=false`
+  );
+  const data = await res.data;
+  data.forEach((e) => {
+    totalExpense.value += e.amount;
+  });
+}
+calAllExpense();
+
+function toReport() {
+  route.push('/report');
+}
+function toCreate() {
+  route.push('/create');
+}
 </script>
 
 <style scoped>
