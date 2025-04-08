@@ -1,4 +1,4 @@
-import Createpage from "@/pages/CreatePage.vue";
+import CreatePage from "@/pages/Createpage.vue";
 import DetailPage from "@/pages/DetailPage.vue";
 import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: "/create",
       name: "Create",
-      component: Createpage,
+      component: CreatePage,
     },
   ],
 });
