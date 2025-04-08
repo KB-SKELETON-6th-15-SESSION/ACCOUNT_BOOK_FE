@@ -23,21 +23,21 @@
 </template>
 
 <script setup>
-import BackButton from '@/components/Shared/BackButton.vue';
-import Header from '@/components/Shared/Header.vue';
-import MainButton from '@/components/Shared/MainButton.vue';
-import { ref, onMounted, watch } from 'vue';
-import axios from 'axios';
-import { useRouter, useRoute } from 'vue-router';
+import BackButton from "@/components/Shared/BackButton.vue";
+import Header from "@/components/Shared/Header.vue";
+import MainButton from "@/components/Shared/MainButton.vue";
+import axios from "axios";
+import { onMounted, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
 const route = useRoute();
-localStorage.setItem('id', 1);
-const id = localStorage.getItem('id');
+
+const id = localStorage.getItem("id");
 
 const member = ref({
-  name: '',
-  email: '',
+  name: "",
+  email: "",
 });
 
 const goBack = () => {
@@ -45,7 +45,7 @@ const goBack = () => {
 };
 
 const check = () => {
-  router.push({ name: 'Modify' });
+  router.push({ name: "Modify" });
 };
 
 async function fetchMember() {
