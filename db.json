@@ -37,6 +37,36 @@
       "memo": "순대국",
       "type": true,
       "memberId": 1
+    },
+    {
+      "id": "d2c7",
+      "name": "test",
+      "amount": 30000,
+      "date": 20250408,
+      "category": "경조사비",
+      "memo": "",
+      "type": true,
+      "memberId": 1
+    },
+    {
+      "id": "8081",
+      "name": "TEST",
+      "amount": 30000000,
+      "date": 20250408,
+      "category": "월급",
+      "memo": "",
+      "type": false,
+      "memberId": 1
+    },
+    {
+      "id": "e81b",
+      "name": "TEST",
+      "amount": 40000,
+      "date": 20250408,
+      "category": "여비교통비",
+      "memo": "",
+      "type": true,
+      "memberId": 1
     }
   ]
 }

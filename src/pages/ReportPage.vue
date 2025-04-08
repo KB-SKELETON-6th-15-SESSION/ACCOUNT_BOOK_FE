@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container p-4 rounded-lg border-solid border-2"
+    class="container p-4 rounded-lg border-solid border-2 h-[800px]"
     style="max-width: 400px"
   >
     <Header />
@@ -91,7 +91,7 @@
     </div>
 
     <!-- 거래 내역 카드 -->
-    <div class="d-flex flex-column gap-2">
+    <div class="d-flex flex-column gap-2 h-[340px] overflow-auto flex-nowrap">
       <TransactionCard
         v-for="data in allData"
         :key="data.id"

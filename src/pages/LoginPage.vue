@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container pt-[100px] rounded-lg border-solid border-2 w-full"
+    class="container pt-[150px] rounded-lg border-solid border-2 w-full h-[800px]"
     style="max-width: 400px"
   >
     <p class="font-bold text-[45px] text-center mb-5">텅장지킴이</p>

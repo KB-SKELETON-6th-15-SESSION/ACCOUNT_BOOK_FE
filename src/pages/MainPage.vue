@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container p-4 rounded-lg border-solid border-2"
+    class="container p-4 rounded-lg border-solid border-2 h-[800px]"
     style="max-width: 400px"
   >
     <Header />
