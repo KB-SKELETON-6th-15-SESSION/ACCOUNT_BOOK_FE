@@ -11,7 +11,7 @@
       <input type="text" v-model="member.name" />
 
       <label>이메일</label>
-      <input type="email" v-model="member.email" disabled />
+      <input v-model="member.email" disabled />
 
       <label>비밀번호</label>
       <input type="password" v-model="member.password" />
@@ -22,22 +22,22 @@
 </template>
 
 <script setup>
-import BackButton from "@/components/Shared/BackButton.vue";
-import Header from "@/components/Shared/Header.vue";
-import MainButton from "@/components/Shared/MainButton.vue";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import BackButton from '@/components/Shared/BackButton.vue';
+import Header from '@/components/Shared/Header.vue';
+import MainButton from '@/components/Shared/MainButton.vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 const member = ref({
-  name: "강민재",
-  email: "minijae011030@gmail.com",
-  password: "",
+  name: '강민재',
+  email: 'minijae011030@gmail.com',
+  password: '',
 });
 
 function goBack() {
-  router.push("/profile");
+  router.push('/profile');
 }
 </script>
 
