@@ -7,7 +7,7 @@
     <BackButton @click="goBack" />
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
-        <label class="form-label font-bold">제목</label>
+        <label class="form-label font-bold">제목 *</label>
         <input
           type="text"
           class="form-control h-[45px]"
@@ -17,7 +17,7 @@
       </div>
 
       <div class="mb-3 flex gap-2">
-        <label class="form-label font-bold w-[100px] m-auto">금액</label>
+        <label class="form-label font-bold w-[100px] m-auto">금액 *</label>
         <div class="input-group">
           <input type="number" class="form-control h-[45px]" v-model="amount" />
           <span class="input-group-text fw-bold bg-white">원</span>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="mb-3 flex gap-2">
-        <label class="form-label font-bold w-[100px] m-auto">카테고리</label>
+        <label class="form-label font-bold w-[100px] m-auto">카테고리 *</label>
         <select class="form-select h-[45px]" v-model="category">
           <option disabled value="">카테고리를 선택하세요</option>
           <option
@@ -39,7 +39,7 @@
       </div>
 
       <div class="mb-3 flex justify-between">
-        <label class="form-label fw-bold d-block">거래 유형</label>
+        <label class="form-label fw-bold d-block">거래 유형 *</label>
         <div class="btn-group" role="group">
           <input
             type="radio"
@@ -107,6 +107,26 @@ const goBack = () => {
 
 const handleSubmit = async () => {
   const id = localStorage.getItem("id");
+
+  if (title.value === "") {
+    alert("제목은 필수 입력사항입니다.");
+    return;
+  }
+
+  if (amount.value === "") {
+    alert("금액은 필수 입력사항입니다.");
+    return;
+  }
+
+  if (category.value === "") {
+    alert("카테고리는 필수 선택사항입니다.");
+    return;
+  }
+
+  if (type.value === "") {
+    alert("거래유형은 필수 선택사항입니다.");
+    return;
+  }
 
   const newTransaction = {
     name: title.value,

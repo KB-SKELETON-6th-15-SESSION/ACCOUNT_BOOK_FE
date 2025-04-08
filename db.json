@@ -47,6 +47,16 @@
       "memo": "내 결혼식",
       "type": true,
       "memberId": 1
+    },
+    {
+      "id": "ac04",
+      "name": "ㅇㅇ",
+      "amount": 30000,
+      "date": 20250408,
+      "category": "월급",
+      "memo": "",
+      "type": true,
+      "memberId": 1
     }
   ]
 }
