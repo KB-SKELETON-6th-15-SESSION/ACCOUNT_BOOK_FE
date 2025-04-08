@@ -18,6 +18,13 @@ const router = createRouter({
       component: ProfilePage,
     },
   ],
+  routes: [
+    {
+      path: '/',
+      name: 'Modify',
+      component: ModifyPage,
+    },
+  ],
 });
 
 export default router;
