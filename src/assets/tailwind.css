@@ -10,6 +10,6 @@ body,
 
 @layer components {
   .layout {
-    @apply container p-4 rounded-[35px] border-solid border-2 h-[800px];
+    @apply container p-8 rounded-[35px] border-solid border-2 h-[800px];
   }
 }
