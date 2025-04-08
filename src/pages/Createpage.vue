@@ -63,14 +63,6 @@
           v-model="memo"
         ></textarea>
       </div>
-
-      <!-- <button
-        type="submit"
-        class="btn w-100 py-2 font-bold"
-        :style="{ backgroundColor: '#B25AE7', color: 'white' }"
-      >
-        등록하기
-      </button> -->
       <MainButton type="submit">등록하기</MainButton>
     </form>
   </div>
