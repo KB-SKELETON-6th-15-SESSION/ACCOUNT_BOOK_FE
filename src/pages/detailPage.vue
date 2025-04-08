@@ -43,6 +43,8 @@ function check() {
     return router.push({ name: report });
 }
 
+
+
 </script>
 
 <style scoped></style>
