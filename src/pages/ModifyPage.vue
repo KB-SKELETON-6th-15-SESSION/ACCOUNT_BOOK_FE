@@ -32,6 +32,7 @@ import axios from 'axios';
 const router = useRouter();
 
 const member = ref({
+  id: '',
   name: '',
   email: '',
   password: '',
@@ -48,6 +49,7 @@ onMounted(async () => {
 
   const res = await axios.get(`http://localhost:3000/member/${id}`);
   member.value = {
+    id: res.data.id,
     name: res.data.name,
     email: res.data.email,
     password: res.data.password,
