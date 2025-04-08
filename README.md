@@ -84,6 +84,6 @@
 | `refactor/` | 코드 구조 개선 |
 
 #### 브랜치 이름 규칙 예시:
-- `feature/login-page`
+- `feat/login-page`
 - `fix/typo-in-readme`
 - `hotfix/login-error`
