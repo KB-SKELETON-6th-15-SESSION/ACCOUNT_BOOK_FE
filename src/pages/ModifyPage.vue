@@ -37,7 +37,7 @@ const member = ref({
 });
 
 function goBack() {
-  router.back();
+  router.push("/profile");
 }
 </script>
 

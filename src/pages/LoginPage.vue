@@ -1,46 +1,41 @@
 <template>
   <div
-    class="d-flex justify-content-center align-items-center vh-100 bg-dark text-white"
+    class="container pt-[100px] rounded-lg border-solid border-2 w-full"
+    style="max-width: 400px"
   >
-    <div class="bg-white text-dark rounded-4 p-5" style="width: 400px">
-      <h1 class="fw-bold text-center mb-5">텅장지킴이</h1>
+    <p class="font-bold text-[45px] text-center mb-5">텅장지킴이</p>
 
-      <form @submit.prevent="handleLogin">
-        <div class="mb-3">
-          <input
-            type="email"
-            class="form-control"
-            placeholder="이메일을 입력하세요"
-            v-model="email"
-            required
-          />
-        </div>
+    <form @submit.prevent="handleLogin" class="mb-[100px]">
+      <div
+        class="mt-[100px] mb-[50px] w-full justify-center flex flex-col items-center gap-4"
+      >
+        <input
+          type="email"
+          class="form-control h-[45px] w-[95%]"
+          placeholder="이메일을 입력하세요"
+          v-model="email"
+          required
+        />
 
-        <div class="mb-4">
-          <input
-            type="password"
-            class="form-control"
-            placeholder="비밀번호를 입력하세요"
-            v-model="password"
-            required
-          />
-        </div>
+        <input
+          type="password"
+          class="form-control h-[45px] w-[95%]"
+          placeholder="비밀번호를 입력하세요"
+          v-model="password"
+          required
+        />
+      </div>
 
-        <button
-          type="submit"
-          class="btn btn-lg w-100"
-          :style="{ backgroundColor: '#B25AE7', color: 'white' }"
-        >
-          로그인
-        </button>
-      </form>
-    </div>
+      <div class="w-full m-auto flex flex-col justify-center items-center">
+        <MainButton type="submit">로그인</MainButton>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup>
+import MainButton from "@/components/Shared/MainButton.vue";
 import { ref } from "vue";
-
 const email = ref("");
 const password = ref("");
 

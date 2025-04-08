@@ -1,5 +1,6 @@
 import CreatePage from "@/pages/Createpage.vue";
 import DetailPage from "@/pages/DetailPage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
 import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";
@@ -10,14 +11,19 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: "/",
+      name: "Login",
+      component: LoginPage,
+    },
+    {
+      path: "/main",
+      name: "Main",
+      component: MainPage,
+    },
+    {
       path: "/detail",
       name: "Detail",
       component: DetailPage,
-    },
-    {
-      path: "/",
-      name: "Main",
-      component: MainPage,
     },
     {
       path: "/profile",
