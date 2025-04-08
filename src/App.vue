@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view />
+    <div class="w-full h-full">
+      <router-view />
+    </div>
   </div>
 </template>
 
