@@ -64,13 +64,14 @@
         ></textarea>
       </div>
 
-      <button
+      <!-- <button
         type="submit"
         class="btn w-100 py-2 font-bold"
         :style="{ backgroundColor: '#B25AE7', color: 'white' }"
       >
         등록하기
-      </button>
+      </button> -->
+      <MainButton type="submit">등록하기</MainButton>
     </form>
   </div>
 </template>
@@ -78,6 +79,7 @@
 <script setup>
 import BackButton from "@/components/Shared/BackButton.vue";
 import Header from "@/components/Shared/Header.vue";
+import MainButton from "@/components/Shared/MainButton.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
