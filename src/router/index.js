@@ -1,3 +1,4 @@
+import Createpage from "@/pages/CreatePage.vue";
 import DetailPage from "@/pages/DetailPage.vue";
 import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
@@ -10,12 +11,12 @@ const router = createRouter({
   routes: [
     {
       path: "/detail",
-      name: "detail",
+      name: "Detail",
       component: DetailPage,
     },
     {
       path: "/",
-      name: "main",
+      name: "Main",
       component: MainPage,
     },
     {
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/report",
       name: "Report",
       component: ReportPage,
+    },
+    {
+      path: "/create",
+      name: "Create",
+      component: Createpage,
     },
   ],
 });
