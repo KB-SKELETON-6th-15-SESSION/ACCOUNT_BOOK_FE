@@ -1,5 +1,5 @@
 import CreatePage from "@/pages/Createpage.vue";
-
+import DetailPage from "@/pages/DetailPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
@@ -40,6 +40,11 @@ const router = createRouter({
       path: "/create",
       name: "Create",
       component: CreatePage,
+    },
+    {
+      path: "/detail",
+      name: "Detail",
+      component: DetailPage,
     },
   ],
 });
