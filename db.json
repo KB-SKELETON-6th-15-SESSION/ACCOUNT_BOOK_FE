@@ -13,9 +13,29 @@
       "amount": 10000,
       "date": 20250407,
       "name": "일품순대국",
-      "category": "식사",
+      "category": "식비",
       "memo": "순대국",
       "type": false,
+      "memberId": 1
+    },
+    {
+      "id": 2,
+      "amount": 10000000,
+      "date": 20250407,
+      "name": "일품순대국",
+      "category": "월급",
+      "memo": "순대국",
+      "type": true,
+      "memberId": 1
+    },
+    {
+      "id": 3,
+      "amount": 10000000,
+      "date": 20250407,
+      "name": "일품순대국",
+      "category": "월급",
+      "memo": "순대국",
+      "type": true,
       "memberId": 1
     }
   ]
