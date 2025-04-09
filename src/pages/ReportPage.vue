@@ -97,52 +97,54 @@
         :date="data.date"
         :amount="data.amount"
         :isIncome="data.type"
+        @click="toDetail(data.id)"
+        style="cursor: pointer"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-import TransactionCard from "@/components/Report/TransactionCard.vue";
-import BackButton from "@/components/Shared/BackButton.vue";
-import Header from "@/components/Shared/Header.vue";
-import axios from "axios";
-import { ref, watch } from "vue";
-import { useRouter } from "vue-router";
+import TransactionCard from '@/components/Report/TransactionCard.vue';
+import BackButton from '@/components/Shared/BackButton.vue';
+import Header from '@/components/Shared/Header.vue';
+import axios from 'axios';
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const goBack = () => {
-  router.push("/main");
+  router.push('/main');
 };
 
 const selected = ref(true);
-const selectedCategory = ref("전체");
-const startDate = ref("2025-01-01");
-const endDate = ref("2025-04-08");
+const selectedCategory = ref('전체');
+const startDate = ref('2025-01-01');
+const endDate = ref('2025-04-08');
 const selectedStartDate = ref(1);
 const selectedEndDate = ref(999999999);
 const sumAmount = ref(0);
 
-localStorage.setItem("id", 1);
-const userId = localStorage.getItem("id");
+localStorage.setItem('id', 1);
+const userId = localStorage.getItem('id');
 
 const categories = [
-  "공과금",
-  "경조사비",
-  "여비교통비",
-  "식비",
-  "월급",
-  "여가비",
-  "기타",
+  '공과금',
+  '경조사비',
+  '여비교통비',
+  '식비',
+  '월급',
+  '여가비',
+  '기타',
 ];
 
 const allData = ref([
   {
     amount: 0,
-    category: "",
+    category: '',
     date: 0,
-    memo: "",
-    name: "",
+    memo: '',
+    name: '',
     type: true,
   },
 ]);
@@ -155,13 +157,13 @@ function calTotalSum() {
 }
 
 function toInteger() {
-  selectedStartDate.value = Number(startDate.value.replaceAll("-", ""));
-  selectedEndDate.value = Number(endDate.value.replaceAll("-", ""));
+  selectedStartDate.value = Number(startDate.value.replaceAll('-', ''));
+  selectedEndDate.value = Number(endDate.value.replaceAll('-', ''));
 }
 
 async function getData() {
-  let res = "";
-  if (selectedCategory.value === "전체") {
+  let res = '';
+  if (selectedCategory.value === '전체') {
     res = await axios.get(
       `http://localhost:3000/transaction?memberId=${userId}&date_gte=${selectedStartDate.value}&date_lte=${selectedEndDate.value}&type=${selected.value}`
     );
@@ -173,15 +175,19 @@ async function getData() {
   allData.value = res.data;
   calTotalSum();
   selected.value
-    ? (sumAmount.value = "+" + sumAmount.value.toLocaleString())
-    : "-" + sumAmount.value.toLocaleString();
+    ? (sumAmount.value = '+' + sumAmount.value.toLocaleString())
+    : '-' + sumAmount.value.toLocaleString();
   console.log(allData.value);
 }
 
 getData();
 
+function toDetail(id) {
+  router.push(`/detail/${id}`);
+}
+
 watch(selectedCategory, (newVal) => {
-  console.log("선택된 카테고리:", newVal);
+  console.log('선택된 카테고리:', newVal);
 });
 </script>
 

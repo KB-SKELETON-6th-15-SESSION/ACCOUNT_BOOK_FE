@@ -42,9 +42,10 @@ const router = createRouter({
       component: CreatePage,
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'Detail',
       component: DetailPage,
+      props: true,
     },
   ],
 });
