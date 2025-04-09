@@ -36,5 +36,13 @@ export const useAuthStore = defineStore('auth', {
         this.isLogin = true;
       }
     },
+
+    logout() {
+      this.user = null;
+      this.isLogin = false;
+      localStorage.removeItem('auth');
+      localStorage.removeItem('id');
+      localStorage.removeItem('name');
+    },
   },
 });

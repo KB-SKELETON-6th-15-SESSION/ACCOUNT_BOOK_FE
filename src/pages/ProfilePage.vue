@@ -16,6 +16,7 @@
     </div>
 
     <MainButton @click="check">프로필 수정하기</MainButton>
+    <MainButton class="mt-2" @click="logoutHandler">로그아웃</MainButton>
   </div>
 </template>
 
@@ -26,10 +27,12 @@ import MainButton from '@/components/Shared/MainButton.vue';
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import { useRouter, useRoute } from 'vue-router';
+import { useAuthStore } from '@/stores/auth';
 
 const router = useRouter();
 const route = useRoute();
 const id = localStorage.getItem('id');
+const authStore = useAuthStore();
 
 const member = ref({
   id: '',
@@ -45,7 +48,19 @@ const check = () => {
   router.push({ name: 'Modify' });
 };
 
+const logoutHandler = () => {
+  authStore.logout();
+  alert('로그아웃 되었습니다.');
+  router.replace({ name: 'Login' });
+};
+
 async function fetchMember() {
+  const id = localStorage.getItem('id');
+  if (!id) {
+    router.replace({ name: 'Login' });
+    return;
+  }
+
   const res = await axios.get(`http://localhost:3000/member/${id}`);
   member.value = res.data;
 }
