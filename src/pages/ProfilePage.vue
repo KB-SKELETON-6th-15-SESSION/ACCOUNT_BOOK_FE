@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container p-4 rounded-lg border-solid border-2"
-    style="max-width: 400px"
-  >
+  <div class="layout" style="max-width: 400px">
     <Header />
     <BackButton @click="goBack" />
 

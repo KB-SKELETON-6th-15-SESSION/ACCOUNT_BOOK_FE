@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container p-4 rounded-lg border-solid border-2"
-    style="max-width: 400px"
-  >
+  <div class="layout" style="max-width: 400px">
     <Header />
     <BackButton @click="goBack" />
 
@@ -22,12 +19,12 @@
 </template>
 
 <script setup>
-import Header from '@/components/Shared/Header.vue';
-import BackButton from '@/components/Shared/BackButton.vue';
-import MainButton from '@/components/Shared/MainButton.vue';
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import axios from 'axios';
+import BackButton from "@/components/Shared/BackButton.vue";
+import Header from "@/components/Shared/Header.vue";
+import MainButton from "@/components/Shared/MainButton.vue";
+import axios from "axios";
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 
@@ -38,7 +35,8 @@ const member = ref({
   password: '',
 });
 
-const id = localStorage.getItem('id');
+
+const id = localStorage.getItem("id");
 
 onMounted(async () => {
   //   if (!id) {
@@ -57,17 +55,17 @@ onMounted(async () => {
 });
 
 function goBack() {
-  router.push('/profile');
+  router.push("/profile");
 }
 
 async function updateMember() {
   try {
     await axios.put(`http://localhost:3000/member/${id}`, member.value);
-    alert('수정 완료');
-    router.push('/profile');
+    alert("수정 완료");
+    router.push("/profile");
   } catch (error) {
     console.error(error);
-    alert('수정 실패');
+    alert("수정 실패");
   }
 }
 </script>
