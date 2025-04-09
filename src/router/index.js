@@ -1,5 +1,6 @@
 import CreatePage from "@/pages/CreatePage.vue";
 import DetailPage from "@/pages/DetailPage.vue";
+import EditPage from "@/pages/EditPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
@@ -42,9 +43,15 @@ const router = createRouter({
       component: CreatePage,
     },
     {
-      path: "/detail",
+      path: "/detail/:id",
       name: "Detail",
       component: DetailPage,
+      props: true,
+    },
+    {
+      path: "/edit/:id",
+      name: "Edit",
+      component: EditPage,
     },
   ],
 });
