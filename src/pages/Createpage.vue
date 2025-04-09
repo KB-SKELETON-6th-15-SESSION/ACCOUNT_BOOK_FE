@@ -99,7 +99,7 @@ const categoryOptions = [
 ];
 
 const goBack = () => {
-  router.back();
+  router.push("/main");
 };
 
 const handleSubmit = async () => {
