@@ -1,7 +1,7 @@
 {
   "member": [
     {
-      "id": 1,
+      "id": "1",
       "name": "강만제",
       "email": "minijae011030@gmail.com",
       "password": "011030"
@@ -9,7 +9,7 @@
   ],
   "transaction": [
     {
-      "id": 1,
+      "id": "1",
       "amount": 10000,
       "date": 20250407,
       "name": "일품순대국",
@@ -19,7 +19,7 @@
       "memberId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "amount": 10000000,
       "date": 20250407,
       "name": "일품순대국",
@@ -29,7 +29,7 @@
       "memberId": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "amount": 10000000,
       "date": 20250407,
       "name": "일품순대국",
@@ -49,24 +49,14 @@
       "memberId": 1
     },
     {
-      "id": "8081",
-      "name": "TEST",
-      "amount": 30000000,
-      "date": 20250408,
-      "category": "월급",
-      "memo": "",
-      "type": false,
-      "memberId": 1
-    },
-    {
-      "id": "e81b",
-      "name": "TEST",
+      "name": "EDIT TEST",
       "amount": 40000,
-      "date": 20250408,
+      "date": 20250409,
       "category": "여비교통비",
       "memo": "",
       "type": true,
-      "memberId": 1
+      "memberId": 1,
+      "id": "e81b"
     }
   ]
 }

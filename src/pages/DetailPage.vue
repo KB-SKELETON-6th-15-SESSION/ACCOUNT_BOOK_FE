@@ -2,6 +2,10 @@
   <div class="layout" style="max-width: 400px">
     <Header />
 
+    <div class="w-full flex justify-end gap-4">
+      <button @click="editData">수정하기</button>
+      <button @click="deleteData" class="text-red-500">삭제하기</button>
+    </div>
     <!-- 카테고리 -->
     <div class="text-[24px] font-semibold text-gray-700 mb-1 mt-2">
       {{ category }}
@@ -24,10 +28,14 @@
       <p class="text-[20px] font-semibold">메모</p>
 
       <!-- 메모 -->
-      <p class="flex-wrap leading-[30px]">{{ memo }}</p>
+      <p class="flex-wrap leading-[30px]">
+        {{ memo ? memo : "메모가 없습니다." }}
+      </p>
     </div>
 
-    <MainButton @click="check">확인</MainButton>
+    <div class="w-full m-auto flex flex-col justify-center items-center">
+      <MainButton @click="check">확인</MainButton>
+    </div>
   </div>
 </template>
 
@@ -36,9 +44,12 @@ import Header from "@/components/Shared/Header.vue";
 import MainButton from "@/components/Shared/MainButton.vue";
 import axios from "axios";
 import { computed, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
+
+const route = useRoute();
+const id = route.params.id;
 
 // 상태 정의
 const category = ref("");
@@ -57,7 +68,7 @@ function formatDate(dateNum) {
 // 데이터 요청
 onMounted(async () => {
   try {
-    const res = await axios.get("http://localhost:3000/transaction/1");
+    const res = await axios.get(`http://localhost:3000/transaction/${id}`);
     const data = res.data;
 
     category.value = data.category;
@@ -76,6 +87,27 @@ const typeSymbol = computed(() => (type.value ? "+" : "-"));
 
 function check() {
   router.push({ name: "Report" });
+}
+
+async function editData() {
+  if (window.confirm("수정하시겠습니까?")) {
+    router.push(`/edit/${id}`);
+    return;
+  }
+}
+
+async function deleteData() {
+  if (window.confirm("삭제하시겠습니까?")) {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3000/transaction/${id}`
+      );
+      alert("삭제되었습니다.");
+      router.push(`/report`);
+    } catch {
+      alert("오류가 발생하였습니다.");
+    }
+  }
 }
 </script>
 
