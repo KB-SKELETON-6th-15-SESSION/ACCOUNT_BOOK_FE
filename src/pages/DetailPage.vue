@@ -36,9 +36,12 @@ import Header from "@/components/Shared/Header.vue";
 import MainButton from "@/components/Shared/MainButton.vue";
 import axios from "axios";
 import { computed, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
+
+const route = useRoute();
+const id = route.params.id;
 
 // 상태 정의
 const category = ref("");
@@ -57,7 +60,7 @@ function formatDate(dateNum) {
 // 데이터 요청
 onMounted(async () => {
   try {
-    const res = await axios.get("http://localhost:3000/transaction/1");
+    const res = await axios.get(`http://localhost:3000/transaction/${id}`);
     const data = res.data;
 
     category.value = data.category;
