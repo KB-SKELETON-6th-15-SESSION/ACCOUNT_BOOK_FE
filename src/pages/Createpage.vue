@@ -140,11 +140,9 @@ const handleSubmit = async () => {
       "http://localhost:3000/transaction",
       newTransaction
     );
-    console.log("등록 성공:", response.data);
     alert("거래내역이 등록되었습니다!");
     router.push("/report");
   } catch (error) {
-    console.error("등록 실패:", error);
     alert("등록 중 오류가 발생했습니다.");
   }
 };
