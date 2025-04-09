@@ -5,11 +5,11 @@
 html,
 body,
 #app {
-  height: 100%;
+  height: 100vh;
 }
 
 @layer components {
   .layout {
-    @apply container p-8 rounded-[35px] border-solid border-2 h-[800px];
+    @apply container p-8 rounded-[35px] border-solid border-2 h-[100vh];
   }
 }
