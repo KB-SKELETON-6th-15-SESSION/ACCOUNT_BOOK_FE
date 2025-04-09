@@ -53,6 +53,13 @@ const router = createRouter({
       component: DetailPage,
       props: true,
     },
+    {
+      path: "/edit/:id",
+      name: "Edit",
+      component: EditPage,
+      meta: { requiresAuth: true },
+      props: true,
+    },
   ],
 });
 
