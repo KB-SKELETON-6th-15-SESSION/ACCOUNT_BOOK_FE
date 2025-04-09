@@ -57,6 +57,16 @@
       "type": true,
       "memberId": 1,
       "id": "e81b"
+    },
+    {
+      "id": "acb8",
+      "name": "강만제의 저녁식사",
+      "amount": 1000000,
+      "date": 20250409,
+      "category": "공과금",
+      "memo": "밥이 맛있었다",
+      "type": false,
+      "memberId": 1
     }
   ]
 }

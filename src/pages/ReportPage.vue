@@ -149,6 +149,19 @@ const allData = ref([
   },
 ]);
 
+function setToday() {
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+
+  endDate.value = `${year}-${month}-${day}`; // "YYYY-MM-DD"
+  selectedEndDate.value = Number(`${year}${month}${day}`); // YYYYMMDD (숫자)
+}
+
+setToday();
+
 function calTotalSum() {
   sumAmount.value = 0;
   allData.value.forEach((e) => {
