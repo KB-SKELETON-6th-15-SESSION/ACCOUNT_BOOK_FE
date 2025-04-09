@@ -65,19 +65,19 @@
 </template>
 
 <script setup>
-import Header from "@/components/Shared/Header.vue";
-import axios from "axios";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-const userId = localStorage.getItem("id");
+import Header from '@/components/Shared/Header.vue';
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const userId = localStorage.getItem('id');
 const route = useRouter();
 const totalAmount = ref(0);
 const totalExpense = ref(0);
-const name = localStorage.getItem("name");
+const name = localStorage.getItem('name');
 
 async function calAllAmount() {
   const res = await axios.get(
-    `http://localhost:3000/transaction?memberId=${userId}&type=true`
+    `https://json-server-api-6wsp.onrender.com/transaction?memberId=${userId}&type=true`
   );
   const data = await res.data;
 
@@ -89,7 +89,7 @@ calAllAmount();
 
 async function calAllExpense() {
   const res = await axios.get(
-    `http://localhost:3000/transaction?memberId=${userId}&type=false`
+    `https://json-server-api-6wsp.onrender.com/transaction?memberId=${userId}&type=false`
   );
   const data = await res.data;
   data.forEach((e) => {
@@ -99,10 +99,10 @@ async function calAllExpense() {
 calAllExpense();
 
 function toReport() {
-  route.push("/report");
+  route.push('/report');
 }
 function toCreate() {
-  route.push("/create");
+  route.push('/create');
 }
 </script>
 

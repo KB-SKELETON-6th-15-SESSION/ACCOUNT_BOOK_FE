@@ -1,7 +1,7 @@
-import axios from "axios";
-import { defineStore } from "pinia";
+import axios from 'axios';
+import { defineStore } from 'pinia';
 
-export const useAuthStore = defineStore("auth", {
+export const useAuthStore = defineStore('auth', {
   state: () => ({
     user: null,
     isLogin: false,
@@ -9,13 +9,15 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
     async login(email, password) {
-      const res = await axios.get("http://localhost:3000/member");
+      const res = await axios.get(
+        'https://json-server-api-6wsp.onrender.com/member'
+      );
       const userArr = res.data;
       const findUser = userArr.find((item) => item.email === email);
       console.log(findUser);
-      if (!findUser) throw new Error("해당 ID가 없습니다.");
+      if (!findUser) throw new Error('해당 ID가 없습니다.');
       if (findUser.password !== password)
-        throw new Error("비밀번호가 틀립니다.");
+        throw new Error('비밀번호가 틀립니다.');
 
       this.user = {
         id: findUser.id,
@@ -24,15 +26,15 @@ export const useAuthStore = defineStore("auth", {
       };
       this.isLogin = true;
 
-      localStorage.setItem("auth", "true");
-      localStorage.setItem("email", this.user.email);
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('email', this.user.email);
 
-      localStorage.setItem("id", this.user.id);
-      localStorage.setItem("name", this.user.name);
+      localStorage.setItem('id', this.user.id);
+      localStorage.setItem('name', this.user.name);
     },
 
     loadUser() {
-      const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+      const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       if (userInfo) {
         this.user = userInfo;
         this.isLogin = true;

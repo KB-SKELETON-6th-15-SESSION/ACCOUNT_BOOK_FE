@@ -61,7 +61,9 @@ async function fetchMember() {
     return;
   }
 
-  const res = await axios.get(`http://localhost:3000/member/${id}`);
+  const res = await axios.get(
+    `https://json-server-api-6wsp.onrender.com/member/${id}`
+  );
   member.value = res.data;
 }
 

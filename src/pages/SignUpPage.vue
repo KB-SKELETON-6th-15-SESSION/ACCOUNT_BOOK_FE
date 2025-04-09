@@ -48,17 +48,17 @@
 </template>
 
 <script setup>
-import BackButton from "@/components/Shared/BackButton.vue";
-import MainButton from "@/components/Shared/MainButton.vue";
-import axios from "axios";
+import BackButton from '@/components/Shared/BackButton.vue';
+import MainButton from '@/components/Shared/MainButton.vue';
+import axios from 'axios';
 
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const name = ref("");
-const email = ref("");
-const password = ref("");
-const confirmPassword = ref("");
+const name = ref('');
+const email = ref('');
+const password = ref('');
+const confirmPassword = ref('');
 const router = useRouter();
 
 function goBack() {
@@ -66,17 +66,17 @@ function goBack() {
 }
 async function handleSignup() {
   if (password.value !== confirmPassword.value) {
-    alert("비밀번호가 일치하지 않습니다.");
+    alert('비밀번호가 일치하지 않습니다.');
     return;
   }
 
   try {
-    if (window.confirm("회원가입 하시겠습니까?")) {
+    if (window.confirm('회원가입 하시겠습니까?')) {
       const res = await axios.get(
-        `http://localhost:3000/member?email=${email.value}`
+        `https://json-server-api-6wsp.onrender.com/member?email=${email.value}`
       );
       if (res.data.length > 0) {
-        throw new Error("이미 등록된 이메일입니다.");
+        throw new Error('이미 등록된 이메일입니다.');
       }
 
       const newUser = {
@@ -85,12 +85,15 @@ async function handleSignup() {
         password: password.value,
       };
 
-      await axios.post(`http://localhost:3000/member`, newUser);
-      alert("회원가입에 성공했습니다.");
-      router.replace("/");
+      await axios.post(
+        `https://json-server-api-6wsp.onrender.com/member`,
+        newUser
+      );
+      alert('회원가입에 성공했습니다.');
+      router.replace('/');
     }
   } catch (err) {
-    alert(err.message || "회원가입 중 오류가 발생했습니다.");
+    alert(err.message || '회원가입 중 오류가 발생했습니다.');
   }
 }
 </script>

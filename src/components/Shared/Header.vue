@@ -11,12 +11,12 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
-const name = localStorage.getItem("name");
+const name = localStorage.getItem('name');
 const router = useRouter();
 
 const goToProfile = () => {
-  router.push("/profile");
+  router.push('/profile');
 };
 </script>

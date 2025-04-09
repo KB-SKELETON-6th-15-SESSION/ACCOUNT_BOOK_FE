@@ -19,23 +19,23 @@
 </template>
 
 <script setup>
-import BackButton from "@/components/Shared/BackButton.vue";
-import Header from "@/components/Shared/Header.vue";
-import MainButton from "@/components/Shared/MainButton.vue";
-import axios from "axios";
-import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import BackButton from '@/components/Shared/BackButton.vue';
+import Header from '@/components/Shared/Header.vue';
+import MainButton from '@/components/Shared/MainButton.vue';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 const member = ref({
-  id: "",
-  name: "",
-  email: "",
-  password: "",
+  id: '',
+  name: '',
+  email: '',
+  password: '',
 });
 
-const id = localStorage.getItem("id");
+const id = localStorage.getItem('id');
 
 onMounted(async () => {
   //   if (!id) {
@@ -44,7 +44,9 @@ onMounted(async () => {
   //     return;
   //   }
 
-  const res = await axios.get(`http://localhost:3000/member/${id}`);
+  const res = await axios.get(
+    `https://json-server-api-6wsp.onrender.com/member/${id}`
+  );
   member.value = {
     id: res.data.id,
     name: res.data.name,
@@ -54,18 +56,21 @@ onMounted(async () => {
 });
 
 function goBack() {
-  router.push("/profile");
+  router.push('/profile');
 }
 
 async function updateMember() {
   try {
-    await axios.put(`http://localhost:3000/member/${id}`, member.value);
-    localStorage.setItem("name", member.value.name);
-    alert("수정 완료");
-    router.push("/profile");
+    await axios.put(
+      `https://json-server-api-6wsp.onrender.com/member/${id}`,
+      member.value
+    );
+    localStorage.setItem('name', member.value.name);
+    alert('수정 완료');
+    router.push('/profile');
   } catch (error) {
     console.error(error);
-    alert("수정 실패");
+    alert('수정 실패');
   }
 }
 </script>

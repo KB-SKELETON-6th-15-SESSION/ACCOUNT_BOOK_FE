@@ -73,77 +73,77 @@
 </template>
 
 <script setup>
-import BackButton from "@/components/Shared/BackButton.vue";
-import Header from "@/components/Shared/Header.vue";
-import MainButton from "@/components/Shared/MainButton.vue";
-import axios from "axios";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import BackButton from '@/components/Shared/BackButton.vue';
+import Header from '@/components/Shared/Header.vue';
+import MainButton from '@/components/Shared/MainButton.vue';
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const title = ref("");
-const amount = ref("");
-const category = ref("");
-const type = ref("");
-const memo = ref("");
+const title = ref('');
+const amount = ref('');
+const category = ref('');
+const type = ref('');
+const memo = ref('');
 
 const categoryOptions = [
-  "공과금",
-  "경조사비",
-  "식비",
-  "여비교통비",
-  "월급",
-  "여가비",
-  "기타",
+  '공과금',
+  '경조사비',
+  '식비',
+  '여비교통비',
+  '월급',
+  '여가비',
+  '기타',
 ];
 
 const goBack = () => {
-  router.push("/main");
+  router.back();
 };
 
 const handleSubmit = async () => {
-  const id = localStorage.getItem("id");
+  const id = localStorage.getItem('id');
 
-  if (title.value === "") {
-    alert("제목은 필수 입력사항입니다.");
+  if (title.value === '') {
+    alert('제목은 필수 입력사항입니다.');
     return;
   }
 
-  if (amount.value === "") {
-    alert("금액은 필수 입력사항입니다.");
+  if (amount.value === '') {
+    alert('금액은 필수 입력사항입니다.');
     return;
   }
 
-  if (category.value === "") {
-    alert("카테고리는 필수 선택사항입니다.");
+  if (category.value === '') {
+    alert('카테고리는 필수 선택사항입니다.');
     return;
   }
 
-  if (type.value === "") {
-    alert("거래유형은 필수 선택사항입니다.");
+  if (type.value === '') {
+    alert('거래유형은 필수 선택사항입니다.');
     return;
   }
 
   const newTransaction = {
     name: title.value,
     amount: Number(amount.value),
-    date: Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")),
+    date: Number(new Date().toISOString().slice(0, 10).replace(/-/g, '')),
     category: category.value,
     memo: memo.value,
-    type: type.value === "수입",
+    type: type.value === '수입',
     memberId: Number(id),
   };
 
   try {
     const response = await axios.post(
-      "http://localhost:3000/transaction",
+      'https://json-server-api-6wsp.onrender.com/transaction',
       newTransaction
     );
-    alert("거래내역이 등록되었습니다!");
-    router.push("/report");
+    alert('거래내역이 등록되었습니다!');
+    router.push('/report');
   } catch (error) {
-    alert("등록 중 오류가 발생했습니다.");
+    alert('등록 중 오류가 발생했습니다.');
   }
 };
 </script>

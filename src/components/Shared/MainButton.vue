@@ -12,12 +12,12 @@
 const props = defineProps({
   type: {
     type: String,
-    default: "button",
+    default: 'button',
   },
 });
 
 const defaultStyle = {
-  backgroundColor: "#B54CE9",
-  color: "white",
+  backgroundColor: '#B54CE9',
+  color: 'white',
 };
 </script>

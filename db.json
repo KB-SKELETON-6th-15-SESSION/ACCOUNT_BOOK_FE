@@ -75,6 +75,7 @@
       "memberId": 1
     },
     {
+<<<<<<< Updated upstream
       "id": "0482",
       "name": "민자이 TEST",
       "amount": 30000,
@@ -83,6 +84,26 @@
       "memo": "test 식비입니다.",
       "type": false,
       "memberId": 6704
+=======
+      "id": "99bc",
+      "name": "이게 되너ㅏ?",
+      "amount": 1,
+      "date": 20250409,
+      "category": "여비교통비",
+      "memo": "",
+      "type": true,
+      "memberId": 1
+    },
+    {
+      "id": "e3fb",
+      "name": "김은지 저녁 식사",
+      "amount": 50000,
+      "date": 20250409,
+      "category": "식비",
+      "memo": "오늘 저녁은 스테이크",
+      "type": false,
+      "memberId": 1
+>>>>>>> Stashed changes
     }
   ]
 }

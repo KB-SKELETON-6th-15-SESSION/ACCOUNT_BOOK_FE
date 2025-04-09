@@ -34,13 +34,13 @@
 </template>
 
 <script setup>
-import MainButton from "@/components/Shared/MainButton.vue";
-import { useAuthStore } from "@/stores/auth";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import MainButton from '@/components/Shared/MainButton.vue';
+import { useAuthStore } from '@/stores/auth';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const email = ref("");
-const password = ref("");
+const email = ref('');
+const password = ref('');
 const router = useRouter();
 const authStore = useAuthStore();
 
@@ -51,9 +51,9 @@ function goSignUp() {
 async function handleLogin() {
   try {
     await authStore.login(email.value, password.value);
-    alert("로그인 성공");
+    alert('로그인 성공');
 
-    router.replace("/main");
+    router.replace('/main');
   } catch (err) {
     alert(err.message);
   }
