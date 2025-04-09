@@ -10,6 +10,6 @@ body,
 
 @layer components {
   .layout {
-    @apply container p-8 rounded-[35px] border-solid border-2 h-[100vh];
+    @apply container p-8 rounded-[35px] h-[100vh] overflow-auto;
   }
 }
