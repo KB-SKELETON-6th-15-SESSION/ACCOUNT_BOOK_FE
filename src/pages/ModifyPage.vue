@@ -29,12 +29,11 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const member = ref({
-  id: '',
-  name: '',
-  email: '',
-  password: '',
+  id: "",
+  name: "",
+  email: "",
+  password: "",
 });
-
 
 const id = localStorage.getItem("id");
 
@@ -61,6 +60,7 @@ function goBack() {
 async function updateMember() {
   try {
     await axios.put(`http://localhost:3000/member/${id}`, member.value);
+    localStorage.setItem("name", member.value.name);
     alert("수정 완료");
     router.push("/profile");
   } catch (error) {
