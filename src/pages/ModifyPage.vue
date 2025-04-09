@@ -29,10 +29,12 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const member = ref({
-  name: "",
-  email: "",
-  password: "",
+  id: '',
+  name: '',
+  email: '',
+  password: '',
 });
+
 
 const id = localStorage.getItem("id");
 
@@ -45,6 +47,7 @@ onMounted(async () => {
 
   const res = await axios.get(`http://localhost:3000/member/${id}`);
   member.value = {
+    id: res.data.id,
     name: res.data.name,
     email: res.data.email,
     password: res.data.password,
