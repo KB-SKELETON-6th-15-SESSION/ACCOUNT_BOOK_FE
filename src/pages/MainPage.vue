@@ -77,9 +77,10 @@ const name = localStorage.getItem("name");
 
 async function calAllAmount() {
   const res = await axios.get(
-    `http://localhost:3000/transaction?userId=${userId}&type=true`
+    `http://localhost:3000/transaction?memberId=${userId}&type=true`
   );
   const data = await res.data;
+
   data.forEach((e) => {
     totalAmount.value += e.amount;
   });
@@ -88,7 +89,7 @@ calAllAmount();
 
 async function calAllExpense() {
   const res = await axios.get(
-    `http://localhost:3000/transaction?userId=${userId}&type=false`
+    `http://localhost:3000/transaction?memberId=${userId}&type=false`
   );
   const data = await res.data;
   data.forEach((e) => {

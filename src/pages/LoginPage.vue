@@ -45,7 +45,7 @@ async function handleLogin() {
   try {
     await authStore.login(email.value, password.value);
     alert("로그인 성공");
-    localStorage.setItem("auth", true);
+
     router.replace("/main");
   } catch (err) {
     alert(err.message);
