@@ -126,7 +126,15 @@ const sumAmount = ref(0);
 localStorage.setItem("id", 1);
 const userId = localStorage.getItem("id");
 
-const categories = ["공과금", "경조사비", "식비", "월급", "여가비", "기타"];
+const categories = [
+  "공과금",
+  "경조사비",
+  "여비교통비",
+  "식비",
+  "월급",
+  "여가비",
+  "기타",
+];
 
 const allData = ref([
   {
