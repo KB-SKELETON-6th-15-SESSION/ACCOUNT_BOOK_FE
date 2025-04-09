@@ -6,6 +6,7 @@ import MainPage from "@/pages/MainPage.vue";
 import ModifyPage from "@/pages/ModifyPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";
 import ReportPage from "@/pages/ReportPage.vue";
+import SignUpPage from "@/pages/SignUpPage.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -16,6 +17,12 @@ const router = createRouter({
       name: "Login",
 
       component: LoginPage,
+    },
+    {
+      path: "/signup",
+      name: "SignUp",
+
+      component: SignUpPage,
     },
     {
       path: "/main",
