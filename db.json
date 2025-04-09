@@ -73,6 +73,16 @@
       "memo": "밥이 맛있었다",
       "type": false,
       "memberId": 1
+    },
+    {
+      "id": "0482",
+      "name": "민자이 TEST",
+      "amount": 30000,
+      "date": 20250409,
+      "category": "식비",
+      "memo": "test 식비입니다.",
+      "type": false,
+      "memberId": 6704
     }
   ]
 }
