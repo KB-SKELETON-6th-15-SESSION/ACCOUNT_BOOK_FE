@@ -31,21 +31,22 @@
 </template>
 
 <script setup>
-import MainButton from '@/components/Shared/MainButton.vue';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/auth';
+import MainButton from "@/components/Shared/MainButton.vue";
+import { useAuthStore } from "@/stores/auth";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-const email = ref('');
-const password = ref('');
+const email = ref("");
+const password = ref("");
 const router = useRouter();
 const authStore = useAuthStore();
 
 async function handleLogin() {
   try {
     await authStore.login(email.value, password.value);
-    alert('로그인 성공');
-    router.replace('/main');
+    alert("로그인 성공");
+    localStorage.setItem("auth", true);
+    router.replace("/main");
   } catch (err) {
     alert(err.message);
   }
