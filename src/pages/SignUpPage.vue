@@ -62,7 +62,7 @@ const confirmPassword = ref("");
 const router = useRouter();
 
 function goBack() {
-  router("/");
+  router.push("/");
 }
 async function handleSignup() {
   if (password.value !== confirmPassword.value) {

@@ -25,6 +25,9 @@
 
       <div class="w-full m-auto flex flex-col justify-center items-center">
         <MainButton type="submit">로그인</MainButton>
+        <button class="mt-4 text-sm" @click="goSignUp">
+          회원이 아니신가요?
+        </button>
       </div>
     </form>
   </div>
@@ -40,6 +43,10 @@ const email = ref("");
 const password = ref("");
 const router = useRouter();
 const authStore = useAuthStore();
+
+function goSignUp() {
+  router.push("/signup");
+}
 
 async function handleLogin() {
   try {
