@@ -1,4 +1,4 @@
-import CreatePage from "@/pages/CreatePage.vue";
+import CreatePage from "@/pages/Createpage.vue";
 import DetailPage from "@/pages/DetailPage.vue";
 import EditPage from "@/pages/EditPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
