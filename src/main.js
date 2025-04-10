@@ -19,6 +19,8 @@ import {
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 
+import './registerServiceWorker'
+
 library.add(
   faFileInvoiceDollar,
   faGift,
