@@ -21,43 +21,43 @@
 </template>
 
 <script setup>
-import BackButton from '@/components/Shared/BackButton.vue';
-import Header from '@/components/Shared/Header.vue';
-import MainButton from '@/components/Shared/MainButton.vue';
-import { ref, onMounted, watch } from 'vue';
-import axios from 'axios';
-import { useRouter, useRoute } from 'vue-router';
-import { useAuthStore } from '@/stores/auth';
+import BackButton from "@/components/Shared/BackButton.vue";
+import Header from "@/components/Shared/Header.vue";
+import MainButton from "@/components/Shared/MainButton.vue";
+import { useAuthStore } from "@/stores/auth";
+import axios from "axios";
+import { onMounted, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
 const route = useRoute();
-const id = localStorage.getItem('id');
+const id = localStorage.getItem("id");
 const authStore = useAuthStore();
 
 const member = ref({
-  id: '',
-  name: '',
-  email: '',
+  id: "",
+  name: "",
+  email: "",
 });
 
 const goBack = () => {
-  router.back();
+  router.push("/main");
 };
 
 const check = () => {
-  router.push({ name: 'Modify' });
+  router.push({ name: "Modify" });
 };
 
 const logoutHandler = () => {
   authStore.logout();
-  alert('로그아웃 되었습니다.');
-  router.replace({ name: 'Login' });
+  alert("로그아웃 되었습니다.");
+  router.replace({ name: "Login" });
 };
 
 async function fetchMember() {
-  const id = localStorage.getItem('id');
+  const id = localStorage.getItem("id");
   if (!id) {
-    router.replace({ name: 'Login' });
+    router.replace({ name: "Login" });
     return;
   }
 
